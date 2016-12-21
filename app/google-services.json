@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "621822892073",
+    "firebase_url": "https://gorent-154f4.firebaseio.com",
+    "project_id": "gorent-154f4",
+    "storage_bucket": "gorent-154f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:621822892073:android:0579e3192a12048c",
+        "android_client_info": {
+          "package_name": "com.example.gorenttemplate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "621822892073-lrb2n3a81o14gtkgdqpiqjcd55kk1c6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gorenttemplate",
+            "certificate_hash": "30E33DCABDAF463593C88C9E682ACAC83CD990D8"
+          }
+        },
+        {
+          "client_id": "621822892073-has9kh1mmhcrt5lii3ltp2vmf9vn5qga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhbrtldcS1OEO-9TvDBOYodE2VSnnNOjU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "621822892073-has9kh1mmhcrt5lii3ltp2vmf9vn5qga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
