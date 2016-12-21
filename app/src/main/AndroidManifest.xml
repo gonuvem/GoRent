@@ -25,7 +25,8 @@
         <activity android:name=".controle.QrCodeActivity" />
         <activity android:name=".controle.CarDetail" />
         <activity android:name=".controle.LoginActivity" />
-        <activity android:name=".controle.RegisterActivity"></activity>
+        <activity android:name=".controle.RegisterActivity" />
+        <activity android:name=".controle.LogOutActivity"></activity>
     </application>
 
 </manifest>

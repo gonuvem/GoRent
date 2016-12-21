@@ -3,15 +3,18 @@ package com.example.gorent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.gorent.controle.CarAdapter;
 import com.example.gorent.controle.CarDetail;
+import com.example.gorent.controle.LogOutActivity;
 import com.example.gorent.controle.LoginActivity;
 import com.example.gorent.dados.FireControl;
 import com.example.gorent.controle.QrCodeActivity;
@@ -20,11 +23,14 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ListView mListView;
     //defining firebaseauth object
     private FirebaseAuth firebaseAuth;
+    private FloatingActionButton buttonSettings;
+    private FloatingActionButton cameraButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         setTitle("GoRent");
-
-//        FireControl f = new FireControl();
-//
-//        Car car = new Car("Etios","Toyota","2016");
-//        Car corola = new Car("Corola","Toyota","2015");
-//
-//        f.writeNewCar(car);
-//        f.writeNewCar(corola);
 
         final ArrayList<Car> list_car = new FireControl().retrive_all_cars();
 
@@ -82,11 +80,18 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        buttonSettings = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        buttonSettings.setOnClickListener(this);
+        cameraButton =  (FloatingActionButton) findViewById(R.id.camera);
+        cameraButton.setOnClickListener(this);
     }
 
     public void onClick(View v){
 
-        startActivity(new Intent(this,QrCodeActivity.class));
-
+        if(v == buttonSettings){
+            startActivity(new Intent(this,LogOutActivity.class));
+        }else if (v == cameraButton){
+            startActivity(new Intent(this,QrCodeActivity.class));
+        }
     }
 }
