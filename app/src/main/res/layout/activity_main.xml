@@ -12,16 +12,6 @@
     tools:context="com.example.gorent.MainActivity"
     android:orientation="vertical">
 
-    <menu xmlns:android="http://schemas.android.com/apk/res/android" >
-
-        <!-- Settings, should always be in the overflow -->
-        <item android:id="@+id/action_settings"
-            android:title="@string/action_settings"
-            app:showAsAction="never"/>
-
-    </menu>
-
-
     <ListView
         android:id="@+id/car_list_view"
         android:layout_height="match_parent"
