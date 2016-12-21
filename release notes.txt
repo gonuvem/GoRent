@@ -1,0 +1,19 @@
+==========================================================================================================================================
+[GoRent] Release Notes - 21-12-2016
+==========================================================================================================================================
+Atividade Realizada: 
+
+
+Implementada funcionalidade de login do funcionario
+Implementada funcionalidade de Cadastrar usuario
+Implementada funcionalidade de listas de carros
+Implementada visão detalhada de cada carro
+
+
+ARTEFATOS GERADOS
+------------------------------------------------------------------------------------------------------------------------------------------
+- JavaDocs
+
+O projeto pode ser acessado e baixado:
+https://github.com/gonuvem/GoRent.git
+
