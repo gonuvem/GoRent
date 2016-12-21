@@ -67,6 +67,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         //attaching listener to button
         buttonSignUp.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
+        textViewSignin.setVisibility(View.INVISIBLE);
+
+
     }
 
     private void registerUser(){
@@ -77,19 +80,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Por favor, digite um email",Toast.LENGTH_LONG).show();
             return;
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Por favor, digite uma senha",Toast.LENGTH_LONG).show();
             return;
         }
 
         //if the email and password are not empty
         //displaying a progress dialog
 
-        progressDialog.setMessage("Registering Please Wait...");
+        progressDialog.setMessage("Registrando, aguarde...");
         progressDialog.show();
 
         //creating a new user
@@ -103,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }else{
                             //display some message here
-                            Toast.makeText(RegisterActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this,"Erro ao criar conta",Toast.LENGTH_LONG).show();
                         }
                         progressDialog.dismiss();
                     }
@@ -120,6 +123,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if(view == textViewSignin){
             //open login activity when user taps on the already registered textview
+            finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
 

@@ -81,19 +81,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Por favor, digite um email",Toast.LENGTH_LONG).show();
             return;
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Por favor, digite a sua senha",Toast.LENGTH_LONG).show();
             return;
         }
 
         //if the email and password are not empty
         //displaying a progress dialog
 
-        progressDialog.setMessage("Registering Please Wait...");
+        progressDialog.setMessage("Entrando, aguarde...");
         progressDialog.show();
 
         //logging in the user
@@ -104,12 +104,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         progressDialog.dismiss();
                         //if the task is successfull
                         if(task.isSuccessful()){
+                            progressDialog.dismiss();
                             //start the profile activity
                             finish();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        }else {
+                            Toast.makeText(LoginActivity.this,"Email ou senha invalido",Toast.LENGTH_LONG).show();
                         }
+
                     }
                 });
+
 
     }
 
@@ -120,7 +125,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         if(view == textViewSignup){
-            finish();
             startActivity(new Intent(this, RegisterActivity.class));
         }
     }
