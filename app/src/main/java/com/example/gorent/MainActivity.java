@@ -1,5 +1,7 @@
 package com.example.gorent;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import com.example.gorent.controle.LoginActivity;
 import com.example.gorent.dados.FireControl;
 import com.example.gorent.controle.QrCodeActivity;
 import com.example.gorent.entidade.Car;
+import com.example.gorent.entidade.Client;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -30,7 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth firebaseAuth;
     private FloatingActionButton buttonSettings;
     private FloatingActionButton cameraButton;
-
+    private static final int SECOND_ACTIVITY_RESULT_CODE = 0;
+    public  final ArrayList<Car> list_car = new FireControl().retrive_all_cars();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
 
-
         setTitle("GoRent");
-
-        final ArrayList<Car> list_car = new FireControl().retrive_all_cars();
-
 
         CarAdapter adapter = new CarAdapter(this, list_car);
         mListView.setAdapter(adapter);
@@ -91,7 +91,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v == buttonSettings){
             startActivity(new Intent(this,LogOutActivity.class));
         }else if (v == cameraButton){
-            startActivity(new Intent(this,QrCodeActivity.class));
+            // Start the SecondActivity
+            Intent intent = new Intent(this, QrCodeActivity.class);
+            startActivityForResult(intent, SECOND_ACTIVITY_RESULT_CODE);
+        }
+    }
+
+    // This method is called when the second activity finishes
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // check that it is the SecondActivity with an OK result
+        if (requestCode == SECOND_ACTIVITY_RESULT_CODE) {
+            if (resultCode == RESULT_OK) {
+                // get String data from Intent
+                String returnString = data.getStringExtra("carKey");
+                final Context context = this;
+                for (Car car: list_car) {
+                    if (car.key.equals("-" + returnString)) {
+                        Intent detailIntent = new Intent(context, CarDetail.class);
+                        detailIntent.putExtra("model", car.model);
+                        detailIntent.putExtra("brand", car.brand);
+                        detailIntent.putExtra("year", car.year);
+                        startActivity(detailIntent);
+                    }
+                }
+            }
         }
     }
 }
