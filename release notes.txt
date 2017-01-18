@@ -7,7 +7,11 @@ Atividade Realizada:
 Implementada funcionalidade de login do funcionario
 Implementada funcionalidade de Cadastrar usuario
 Implementada funcionalidade de listas de carros
-Implementada vis„o detalhada de cada carro
+Implementada vis√£o detalhada de cada carro
+Implementada a funcionalidade de exibir todos os clientes cadastrados
+Implementada a funcionalidade de exibir dados do cliente detalhado
+Implementada a funcionalidade de cadastrar clientes
+Implementada a funcionalidade de Leitura do QR Code
 
 
 ARTEFATOS GERADOS
