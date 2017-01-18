@@ -1,17 +1,19 @@
 package com.example.gorent.controle;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.gorent.R;
-import com.example.gorent.entidade.Car;
 
-public class CarDetail extends AppCompatActivity {
+public class CarDetail extends AppCompatActivity implements View.OnClickListener {
 
     public TextView model, year, brand;
 
+    private Button rentCar;
 
 
     @Override
@@ -29,5 +31,14 @@ public class CarDetail extends AppCompatActivity {
         year.setText(this.getIntent().getExtras().getString("year"));
         brand.setText(this.getIntent().getExtras().getString("brand"));
 
+        rentCar = (Button) findViewById(R.id.rent_car);
+        rentCar.setOnClickListener(this);
+    }
+
+    public void onClick(View v){
+
+        if(v == rentCar){
+            startActivity(new Intent(this,ClientList.class));
+        }
     }
 }
